@@ -3,25 +3,32 @@ package com.example.traffic_fine;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class Server {
+
+    ArrayList<ClientHandler> clients = new ArrayList<>();
 
     ServerSocket serverSocket = null;
     Socket socket = null;
 
 
     Server(){
-
-        try {
-            while(true) {
+        while(true) {
+            try {
                 serverSocket = new ServerSocket(1234);
                 socket = serverSocket.accept();
-                new Thread(new ClientHandler(socket)).start();
+
+                clients.add(new ClientHandler(socket));
+
                 System.out.println("A client has connected");
+                Thread thread = new Thread(new ClientHandler(socket));
+                thread.run();
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
 
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 
@@ -45,38 +52,25 @@ class ClientHandler implements Runnable{
 
     @Override
     public void run() {
+        try {
+            in = new InputStreamReader(socket.getInputStream());
+            out = new OutputStreamWriter(socket.getOutputStream());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        br = new BufferedReader(in);
+        bw = new BufferedWriter(out);
         while (true){
             try {
-                in = new InputStreamReader(socket.getInputStream());
-                out = new OutputStreamWriter(socket.getOutputStream());
-                br = new BufferedReader(in);
-                bw = new BufferedWriter(out);
-
-
-//                //complete the code here
-//                query = br.readLine();
-//                sentData=query;
-//                bw.write("From server: "+sentData);
-//                bw.newLine();
-//                bw.flush();
-
-
-                if(br.readLine()=="exit"){
-                    break;
-                }
+                //complete the code here
+                query = br.readLine();
+                sentData=query;
+                bw.write("From server: "+sentData);
+                bw.newLine();
+                bw.flush();
 
             } catch (IOException e) {
                 throw new RuntimeException(e);
-            }
-            finally{
-                try {
-                    in.close();
-                    out.close();
-                    bw.close();
-                    br.close();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
             }
         }
 
