@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.LoginScreen">
+   <children>
+      <TextField fx:id="usernameTF" layoutX="553.0" layoutY="279.0" />
+      <PasswordField fx:id="pwTF" layoutX="553.0" layoutY="350.0" />
+      <Button fx:id="loginBtn" layoutX="553.0" layoutY="418.0" mnemonicParsing="false" onAction="#logIn" prefHeight="24.0" prefWidth="69.0" text="Log In" />
+      <Button layoutX="658.0" layoutY="418.0" mnemonicParsing="false" onAction="#signUp" text="Sign Up" />
+      <Label layoutX="591.0" layoutY="241.0" text="Username/NID" />
+      <Label layoutX="608.0" layoutY="320.0" text="Password" />
+      <Label fx:id="loginStatus" layoutX="461.0" layoutY="487.0" prefHeight="16.0" prefWidth="359.0" />
+      <Text layoutX="198.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bangladesh Road Safety and Traffic Law Enforcement Portal">
+         <font>
+            <Font size="26.0" />
+         </font></Text>
+   </children>
+</AnchorPane>
