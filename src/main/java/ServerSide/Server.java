@@ -1,13 +1,12 @@
-package com.example.traffic_fine;
+package ServerSide;
+
+import Cypher.CypherHandler;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
 
 public class Server {
-
-    ArrayList<ClientHandlerAPI> clients = new ArrayList<>();
 
     ServerSocket serverSocket = null;
     Socket socket = null;
@@ -16,6 +15,7 @@ public class Server {
     Server(){
         try {
             serverSocket = new ServerSocket(1234);
+            System.out.println("server is online");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -23,10 +23,10 @@ public class Server {
             try {
                 socket = serverSocket.accept();
 
-                clients.add(new ClientHandlerAPI(socket));
-
                 System.out.println("A client has connected");
                 ClientHandlerAPI clientHandlerAPI = new ClientHandlerAPI(socket);
+
+                //new Thread for every client
                 Thread thread = new Thread(clientHandlerAPI);
                 thread.start();
 
@@ -57,6 +57,8 @@ class ClientHandlerAPI implements Runnable{
 
     @Override
     public void run() {
+
+        CypherHandler cp = new CypherHandler();
         try {
             in = new InputStreamReader(socket.getInputStream());
             out = new OutputStreamWriter(socket.getOutputStream());
@@ -66,16 +68,19 @@ class ClientHandlerAPI implements Runnable{
         br = new BufferedReader(in);
         bw = new BufferedWriter(out);
 
+        /*
+        Data is sent and received here
+         */
         try {
             while (true) {
-                //complete the code here
-                    query = br.readLine();
+
+                query = cp.decryptor(br.readLine());
                 if(query.equals("exit")){
-                    System.out.println("client has closed connection");
+                    System.out.println("A client has closed connection");
                     break;
                 }
                     sentData = query;
-                    bw.write("From server: " + sentData);
+                    bw.write(cp.encryptor(sentData));
                     bw.newLine();
                     bw.flush();
 

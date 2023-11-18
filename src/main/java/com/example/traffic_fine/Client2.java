@@ -6,7 +6,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Client{
+public class Client2{
 
 
     Socket socket = null;
@@ -17,7 +17,7 @@ public class Client{
     String data = "0";
     CypherHandler cp = new CypherHandler();
 
-    Client(){
+    Client2(){
 
 
         try {
@@ -52,12 +52,12 @@ public class Client{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-            try {
-                bw.close();
-                br.close();
-            } catch (IOException e) {
-                closeConnection(socket,br,bw);
-            }
+        try {
+            bw.close();
+            br.close();
+        } catch (IOException e) {
+            closeConnection(socket,br,bw);
+        }
     }
 
     public void closeConnection(Socket socket, BufferedReader br, BufferedWriter bw){
@@ -74,3 +74,4 @@ public class Client{
         new Client();
     }
 }
+
