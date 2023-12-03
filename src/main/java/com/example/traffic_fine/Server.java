@@ -13,9 +13,6 @@ public class Server {
     ServerSocket serverSocket = null;
     Socket socket = null;
 
-
-
-
     Server(){
         try {
             serverSocket = new ServerSocket(1234);
