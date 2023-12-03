@@ -9,7 +9,7 @@ public class CypherHandler {
     public String encryptor(String received){
         char s[] = received.toCharArray();
         for (int i = 0; i < s.length; i++) {
-            s[i]+=2;
+            s[i]+=7;
         }
         String sentData = String.valueOf(s);
 
@@ -18,7 +18,7 @@ public class CypherHandler {
     public String decryptor(String sent){
         char s[] = sent.toCharArray();
         for (int i = 0; i < s.length; i++) {
-            s[i]-=2;
+            s[i]-=7;
         }
         String receivedData = String.valueOf(s);
         return receivedData;
