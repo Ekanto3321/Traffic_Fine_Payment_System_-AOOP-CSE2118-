@@ -1,15 +1,19 @@
-package ServerSide;
+package com.example.traffic_fine;
 
 import Cypher.CypherHandler;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-
     ServerSocket serverSocket = null;
     Socket socket = null;
+
+
 
 
     Server(){
@@ -24,6 +28,7 @@ public class Server {
                 socket = serverSocket.accept();
 
                 System.out.println("A client has connected");
+
                 ClientHandlerAPI clientHandlerAPI = new ClientHandlerAPI(socket);
 
                 //new Thread for every client
