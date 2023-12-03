@@ -7,41 +7,41 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1139.0" style="-fx-background-color: cyan;" stylesheets="@../../../CSS/Dash.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.Dash">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1139.0" style="-fx-background-color: rgba(204, 252, 255, 1);" stylesheets="@../../../CSS/Dash.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.Dash">
    <children>
-      <BorderPane fx:id="bp" layoutX="11.0" layoutY="14.0" prefHeight="681.0" prefWidth="1118.0" style="-fx-background-color: red;" stylesheets="@../../../CSS/Dash.css">
+      <BorderPane fx:id="bp" layoutX="11.0" layoutY="14.0" prefHeight="681.0" prefWidth="1118.0" stylesheets="@../../../CSS/Dash.css">
          <left>
-            <VBox prefHeight="681.0" prefWidth="185.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="681.0" prefWidth="185.0" style="-fx-background-color: rgba(107, 121, 249, 1);" stylesheets="@../../../CSS/Dash.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#button1" text="Button">
+                  <Button mnemonicParsing="false" onMouseClicked="#button1" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: rgba(204, 252, 255, 1);" stylesheets="@../../../CSS/Dash.css" text="Home">
                      <VBox.margin>
-                        <Insets left="60.0" top="25.0" />
+                        <Insets left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#button2" text="Button">
+                  <Button mnemonicParsing="false" onMouseClicked="#button2" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: rgba(204, 252, 255, 1);" stylesheets="@../../../CSS/Dash.css" text="Feat1">
                      <VBox.margin>
-                        <Insets left="60.0" top="25.0" />
+                        <Insets left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#button3" text="Button">
+                  <Button mnemonicParsing="false" onMouseClicked="#button3" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: rgba(204, 252, 255, 1);" stylesheets="@../../../CSS/Dash.css" text="Feat2">
                      <VBox.margin>
-                        <Insets left="60.0" top="25.0" />
+                        <Insets left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#logOut" text="Logout">
+                  <Button mnemonicParsing="false" onAction="#logOut" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: rgba(204, 252, 255, 1);" stylesheets="@../../../CSS/Dash.css" text="Logout">
                      <VBox.margin>
-                        <Insets left="60.0" top="25.0" />
+                        <Insets left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </Button>
                </children>
             </VBox>
          </left>
          <center>
-            <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blue;" stylesheets="@../../../CSS/Dash.css" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(204, 252, 255, 1);" stylesheets="@../../../CSS/Dash.css" BorderPane.alignment="CENTER">
                <children>
                   <TextArea fx:id="notifTA" layoutX="693.0" layoutY="119.0" prefHeight="349.0" prefWidth="200.0" />
                   <Button layoutX="693.0" layoutY="494.0" mnemonicParsing="false" onAction="#showNotif" text="Notification" />
-                  <Button layoutX="101.0" layoutY="494.0" mnemonicParsing="false" onAction="#payFine" text="Fines" />
+                  <Button layoutX="101.0" layoutY="494.0" mnemonicParsing="false" onAction="#payFine" stylesheets="@../../../CSS/Dash.css" text="Fines" />
                   <Button fx:id="bt" layoutX="263.0" layoutY="494.0" mnemonicParsing="false" onAction="#button" text="Displayinfo" />
                   <Button layoutX="415.0" layoutY="494.0" mnemonicParsing="false" text="History" />
                </children></AnchorPane>
