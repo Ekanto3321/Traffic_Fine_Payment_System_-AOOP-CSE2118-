@@ -31,7 +31,6 @@ public class FinePayment {
     @FXML
     public void loadInformation(){
         u_name.setText(Dash.user.name);
-        u_credit.setText(String.valueOf(Dash.user.cred));
         u_ID.setText(Dash.user.vID);
 
     }

@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
 public class ServerGUIHandler {
-
-
     String logs="hello";
 
     //FXML CONTROLS
@@ -15,8 +13,8 @@ public class ServerGUIHandler {
 
     @FXML
     public void loadLogs(ActionEvent e){
+
         logsTA.appendText(logs+"\n");
     }
-
 
 }

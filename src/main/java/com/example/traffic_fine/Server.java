@@ -8,6 +8,11 @@ import javafx.scene.control.TextArea;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Server {
     ServerSocket serverSocket = null;
@@ -51,7 +56,7 @@ class ClientHandlerAPI implements Runnable{
     BufferedWriter bw = null;
     BufferedReader br = null;
     String query;
-    String sentData;
+    String queryChecker=" ";
     Socket socket;
     ClientHandlerAPI(Socket socket){
         this.socket = socket;
@@ -59,7 +64,6 @@ class ClientHandlerAPI implements Runnable{
 
     @Override
     public void run() {
-
         CypherHandler cp = new CypherHandler();
         try {
             in = new InputStreamReader(socket.getInputStream());
@@ -69,6 +73,24 @@ class ClientHandlerAPI implements Runnable{
         }
         br = new BufferedReader(in);
         bw = new BufferedWriter(out);
+        ArrayList<String> list = new ArrayList<>();
+        BufferedReader dataReader = null;
+        try {
+            dataReader = new BufferedReader(new FileReader("data.txt"));
+
+            String st;
+
+            while((st = dataReader.readLine())!=null){
+                list.add(st);
+            }
+
+            dataReader.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
         /*
         Data is sent and received here
@@ -76,31 +98,71 @@ class ClientHandlerAPI implements Runnable{
         try {
             while (true) {
 
-                query = cp.decryptor(br.readLine());
-                if(query.equals("exit")){
-                    System.out.println("A client has closed connection");
-                    break;
+                query = CypherHandler.decryptor(br.readLine());
+
+                String s[] = query.split(",");
+
+                if(!queryChecker.equals(query)){
+                    switch (s[0]){
+                        case "signup":
+                            ServerLoginSignupHandler.signUp(s[1]+","+s[2]+","+s[3]);
+                            break;
+
+                        case "login":
+                            Boolean toggle = false;
+                            for (int i = 0; i < list.size(); i++) {
+                                String data[] = list.get(i).split(",");
+
+                                if(data[0].equals(s[1])&&data[1].equals(s[2])){
+                                    System.out.println("Data: "+data[0]+" "+data[1]+" S: "+s[1]+" "+s[2]);
+                                    bw.write(CypherHandler.encryptor("yes,"+data[0]+","+data[1]+","+data[2]));
+                                    bw.newLine();
+                                    bw.flush();
+                                    toggle=true;
+                                    break;
+                                }
+                            }
+                            if(toggle==false){
+                                bw.write(CypherHandler.encryptor("no,0,0,0"));
+                                bw.newLine();
+                                bw.flush();
+                                break;
+                            }
+                            break;
+
+                        case "exit":
+                            System.out.println("A client has closed logged out");
+                            break;
+
+//                        case "message":
+//                            bw.write(cp.encryptor(s[1]));
+//                            bw.newLine();
+//                            bw.flush();
+//                            break;
+                        }
+
+                    queryChecker = query;
                 }
-                    sentData = query;
-                    bw.write(cp.encryptor(sentData));
+                else {
+                    bw.write(CypherHandler.encryptor("no,0,0,0"));
                     bw.newLine();
                     bw.flush();
+                }
 
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
                 closeConnection(socket,br,bw);
         }
-
     }
     public void closeConnection(Socket socket, BufferedReader br, BufferedWriter bw){
         try {
             if(socket!=null)bw.close();
             if(socket!=null)socket.close();
             if(socket!=null)bw.close();
+            System.out.println("A client has closed connection");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 
 }

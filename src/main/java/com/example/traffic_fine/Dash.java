@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Dash implements Initializable {
+public class Dash implements Initializable{
     static User user;
     Stage stage;
     Parent root;
@@ -73,12 +73,12 @@ public class Dash implements Initializable {
 
     @FXML
     public void button(ActionEvent e){
-        userLB.setText("User: " + user.name+ "\nVehicle: " + user.vID+"\nUser fine factor: "+user.cred);
-        System.out.println(user.cred);
+        userLB.setText("User: " + user.name+ "\nVehicle: " + user.vID+"\n");
     }
 
     @FXML //switches from Dash to login Screen
     public void logOut(ActionEvent e) throws IOException {
+        Client.sendText("exit");
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         root = FXMLLoader.load(this.getClass().getResource("loginScreen.fxml"));
         Scene scene = new Scene(root);
@@ -104,6 +104,10 @@ public class Dash implements Initializable {
     public static void setUser(User u){
         user = u;
     }
+
+
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

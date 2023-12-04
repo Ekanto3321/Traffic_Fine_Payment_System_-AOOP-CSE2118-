@@ -12,52 +12,56 @@ public class Client{
     Socket socket = null;
     InputStreamReader in = null;
     OutputStreamWriter out = null;
-    BufferedReader br = null;
-    BufferedWriter bw = null;
+    static BufferedReader br = null;
+    static BufferedWriter bw = null;
     String data = "0";
+
+    static String message;
+    Scanner sc;
     CypherHandler cp = new CypherHandler();
 
     Client(){
-
-
         try {
+
             socket = new Socket("localhost", 1234);
             out = new OutputStreamWriter(socket.getOutputStream());
             bw = new BufferedWriter(out);
             in = new InputStreamReader(socket.getInputStream());
             br = new BufferedReader(in);
-            String dataToSend;
-            String receivedData = " ";
-            String decryptedReceivedData=" ";
-            Scanner sc = new Scanner(System.in);
+            sc = new Scanner(System.in);
 
-            /*
-            Data sending and reception part
-             */
-            while (true) {
-                dataToSend = sc.nextLine();
-
-                bw.write(cp.encryptor(dataToSend));
-                bw.newLine();
-                bw.flush();
-                System.out.println(cp.encryptor(dataToSend));//test
-                if(dataToSend.equals("exit")){
-                    System.out.println("connection closed");
-                    break;
-                }
-                decryptedReceivedData = cp.decryptor(br.readLine());
-                System.out.println("From server: " + decryptedReceivedData);
-            }
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-            try {
-                bw.close();
-                br.close();
-            } catch (IOException e) {
-                closeConnection(socket,br,bw);
-            }
+
+    }
+
+    public static void sendText(String s){
+        try {
+            bw.write(CypherHandler.encryptor(s));
+            bw.newLine();
+            bw.flush();
+            System.out.println("Client sent: "+ s);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    public static String receiveText(){
+        try {
+            String s = CypherHandler.decryptor(br.readLine());
+            System.out.println("Client received: "+ s);
+            return s;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+    public static void main(String args[]) {
+        new Client();
     }
 
     public void closeConnection(Socket socket, BufferedReader br, BufferedWriter bw){
@@ -68,9 +72,5 @@ public class Client{
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String args[]) {
-        new Client();
     }
 }

@@ -1,5 +1,6 @@
 package com.example.traffic_fine;
 
+import Cypher.CypherHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,15 +41,17 @@ public class SignUpScreen {
     public void confirmSignUp() throws IOException {
 
         BufferedWriter bw = new BufferedWriter(new FileWriter("info.txt",true));
-        User user = new User(usernameTB.getText(),passwordTB.getText(),vIDTB.getText(),new Random().nextInt(500,1000));
+        User user = new User(usernameTB.getText(),passwordTB.getText(),vIDTB.getText());
+
         String s;
-        s = user.name+","+user.password+","+ user.vID+","+user.cred+"\n";
+        s = user.name+","+user.password+","+ user.vID+",";
+
         if(!usernameTB.getText().isEmpty() && !usernameTB.getText().isEmpty() && !vIDTB.getText().isEmpty()){
-            bw.write(s);
+            Client.sendText("signup,"+s);
             signUpStatus.setText("Sign Up successful!");
         }
-        else signUpStatus.setText("Fields are empty!!");
-        bw.close();
+        else signUpStatus.setText("Fields are empty");
+
 
     }
 

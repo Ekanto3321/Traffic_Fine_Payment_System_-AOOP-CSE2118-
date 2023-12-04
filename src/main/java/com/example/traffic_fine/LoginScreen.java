@@ -1,5 +1,6 @@
 package com.example.traffic_fine;
 
+import Cypher.CypherHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,33 +28,42 @@ public class LoginScreen {
     Stage stage;
     Parent root;
 
+
     ArrayList<String> userData = new ArrayList<>();
 
     @FXML
     public void logIn(ActionEvent e) throws IOException {
-        readUserData();
+        String username = usernameTF.getText();
+        String password = pwTF.getText();
 
-        if(!usernameTF.getText().isEmpty() && !pwTF.getText().isEmpty()) {
-            for (int i = 0; i < userData.size(); i++) {
-                //splitting info string
-                String data[] = userData.get(i).split(",");
-                if (data[0].equals(usernameTF.getText()) && data[1].equals(pwTF.getText())) {
+        if(!username.isEmpty() && !password.isEmpty()) {
 
-                    //sending user object with all information to dash class
-                    User user = new User(data[0],data[1],data[2],Integer.parseInt(data[3]));
-                    Dash.setUser(user);
-                    stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                    root = FXMLLoader.load(this.getClass().getResource("Dash.fxml"));
-                    Scene scene = new Scene(root);
-                    stage.setTitle("Dash");
-                    stage.setScene(scene);
-                    stage.show();
-                    break;
-                } else {
+            Client.sendText("login,"+username+","+password);
+
+            String received = Client.receiveText();
+
+            System.out.println("loginR: "+received);
+
+            String data[] = received.split(",");
+
+            if (data[0].equals("yes")) {
+                //sending user object with all information to dash class
+                User user = new User(data[1],data[2],data[3]);
+                Dash.setUser(user);
+
+                stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                root = FXMLLoader.load(this.getClass().getResource("Dash.fxml"));
+                Scene scene = new Scene(root);
+                stage.setTitle("Dash");
+                stage.setScene(scene);
+                stage.show();
+
+            }
+            else if(data[0].equals("no")) {
                     loginStatus.setText("Username or Password doesn't match");
-                }
             }
         }
+
         else loginStatus.setText("Username and Password fields are empty!");
     }
     @FXML
