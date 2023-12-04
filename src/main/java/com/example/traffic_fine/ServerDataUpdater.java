@@ -1,4 +1,4 @@
 package com.example.traffic_fine;
 
-public class DataUpdater {
+public class ServerDataUpdater {
 }

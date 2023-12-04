@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Server {
+public class Server{
     ServerSocket serverSocket = null;
     Socket socket = null;
 
@@ -22,6 +22,7 @@ public class Server {
         try {
             serverSocket = new ServerSocket(1234);
             System.out.println("server is online");
+            Logs.addLogs("server is online");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -30,6 +31,7 @@ public class Server {
                 socket = serverSocket.accept();
 
                 System.out.println("A client has connected");
+                Logs.addLogs("A client has connected");
 
                 ClientHandlerAPI clientHandlerAPI = new ClientHandlerAPI(socket);
 
@@ -73,6 +75,7 @@ class ClientHandlerAPI implements Runnable{
         }
         br = new BufferedReader(in);
         bw = new BufferedWriter(out);
+
         ArrayList<String> list = new ArrayList<>();
         BufferedReader dataReader = null;
         try {
@@ -114,10 +117,15 @@ class ClientHandlerAPI implements Runnable{
                                 String data[] = list.get(i).split(",");
 
                                 if(data[0].equals(s[1])&&data[1].equals(s[2])){
+
                                     System.out.println("Data: "+data[0]+" "+data[1]+" S: "+s[1]+" "+s[2]);
+
                                     bw.write(CypherHandler.encryptor("yes,"+data[0]+","+data[1]+","+data[2]));
                                     bw.newLine();
                                     bw.flush();
+
+                                    Logs.addLogs("Client "+data[0]+" Has logged in");
+
                                     toggle=true;
                                     break;
                                 }
@@ -131,6 +139,7 @@ class ClientHandlerAPI implements Runnable{
                             break;
 
                         case "exit":
+                            Logs.addLogs("A client has closed logged out");
                             System.out.println("A client has closed logged out");
                             break;
 
@@ -160,6 +169,9 @@ class ClientHandlerAPI implements Runnable{
             if(socket!=null)socket.close();
             if(socket!=null)bw.close();
             System.out.println("A client has closed connection");
+            Logs.addLogs("A client has closed connection");
+            Logs.clearLogs();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
