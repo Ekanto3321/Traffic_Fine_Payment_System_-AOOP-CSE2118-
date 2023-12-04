@@ -19,9 +19,9 @@
       <TextField fx:id="usernameTB" layoutX="617.0" layoutY="208.0" />
       <Text layoutX="512.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
       <TextField fx:id="passwordTB" layoutX="617.0" layoutY="281.0" />
-      <Text layoutX="512.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+      <Text layoutX="512.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
       <Text fx:id="signUpStatus" layoutX="242.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <TextField fx:id="vIDTB" layoutX="617.0" layoutY="357.0" />
-      <Text layoutX="512.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle ID:" />
+      <TextField fx:id="vIDTB" layoutX="617.0" layoutY="348.0" />
+      <Text layoutX="512.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle ID:" />
    </children>
 </AnchorPane>

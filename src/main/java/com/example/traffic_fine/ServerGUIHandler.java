@@ -11,6 +11,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/*
+
+FIX THE LOGGING SYSTEM
+
+ */
+
 public class ServerGUIHandler {
     static String logs="";
 
@@ -22,7 +28,7 @@ public class ServerGUIHandler {
 
     @FXML
     public void loadLogs(ActionEvent e){
-        logsTA.appendText(Logs.readLogs());
+        logsTA.appendText(ServerLogs.readLogs());
 
     }
 
@@ -49,6 +55,12 @@ public class ServerGUIHandler {
             if(searchBox.getText().equals(s[0])){
                 name.setText(s[0]);
                 vehicleNo.setText(s[2]);
+                age.setText(s[3]);
+                NID.setText(s[4]);
+                lisenceNo.setText(s[5]);
+                vehicleType.setText(s[6]);
+                address.setText(s[7]);
+
 
             }
         }
