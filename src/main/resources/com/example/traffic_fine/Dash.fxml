@@ -1,51 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1139.0" style="-fx-background-color: rgba(204, 252, 255, 1);" stylesheets="@../../../CSS/Dash.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.Dash">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1139.0" style="-fx-background-color: #EBF1D5;" stylesheets="@../../../CSS/Dash.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.Dash">
    <children>
       <BorderPane fx:id="bp" layoutX="11.0" layoutY="14.0" prefHeight="681.0" prefWidth="1118.0" stylesheets="@../../../CSS/Dash.css">
          <left>
-            <VBox prefHeight="681.0" prefWidth="185.0" style="-fx-background-color: rgba(107, 121, 249, 1);" stylesheets="@../../../CSS/Dash.css" BorderPane.alignment="CENTER">
+            <VBox prefHeight="681.0" prefWidth="204.0" style="-fx-background-radius: 15px; -fx-background-color: #98DD98;" stylesheets="@../../../CSS/Dash.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#button1" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: rgba(204, 252, 255, 1);" stylesheets="@../../../CSS/Dash.css" text="Home">
+                  <ImageView fitHeight="132.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Logo/logo.png" />
+                     </image>
                      <VBox.margin>
-                        <Insets left="5.0" right="5.0" top="5.0" />
+                        <Insets left="30.0" right="30.0" top="10.0" />
                      </VBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#button2" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: rgba(204, 252, 255, 1);" stylesheets="@../../../CSS/Dash.css" text="Vehicle Details">
+                  </ImageView>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Traffic Penalty Ticketing Portal" textAlignment="CENTER" wrappingWidth="147.3095703125">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
                      <VBox.margin>
-                        <Insets left="5.0" right="5.0" top="5.0" />
+                        <Insets left="20.0" right="20.0" />
                      </VBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#button3" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: rgba(204, 252, 255, 1);" stylesheets="@../../../CSS/Dash.css" text="Other Details">
+                  </Text>
+                  <MFXButton buttonType="RAISED" depthLevel="LEVEL5" onMouseClicked="#button1" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EBF1D5; -fx-background-radius: 10;" stylesheets="@../../../CSS/Dash.css" text="Dashboard">
                      <VBox.margin>
-                        <Insets left="5.0" right="5.0" top="5.0" />
+                        <Insets left="10.0" right="10.0" top="15.0" />
                      </VBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#logOut" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: rgba(204, 252, 255, 1);" stylesheets="@../../../CSS/Dash.css" text="Logout">
+                  </MFXButton>
+                  <MFXButton buttonType="RAISED" depthLevel="LEVEL5" onMouseClicked="#button2" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EBF1D5; -fx-background-radius: 10;" stylesheets="@../../../CSS/Dash.css" text="Vehicle Details">
                      <VBox.margin>
-                        <Insets left="5.0" right="5.0" top="5.0" />
+                        <Insets left="10.0" right="10.0" top="15.0" />
                      </VBox.margin>
-                  </Button>
+                  </MFXButton>
+                  <MFXButton buttonType="RAISED" depthLevel="LEVEL5" onMouseClicked="#button3" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EBF1D5; -fx-background-radius: 10;" stylesheets="@../../../CSS/Dash.css" text="Other Details">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="15.0" />
+                     </VBox.margin>
+                  </MFXButton>
+                  <MFXButton fx:id="bt" buttonType="RAISED" depthLevel="LEVEL5" onAction="#button" onMouseClicked="#button3" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EBF1D5; -fx-background-radius: 10;" stylesheets="@../../../CSS/Dash.css" text="Profile">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="150.0" />
+                     </VBox.margin>
+                  </MFXButton>
+                  <MFXButton buttonType="RAISED" depthLevel="LEVEL5" onAction="#logOut" onMouseClicked="#button3" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EBF1D5; -fx-background-radius: 10;" stylesheets="@../../../CSS/Dash.css" text="Log Out">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="15.0" />
+                     </VBox.margin>
+                  </MFXButton>
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </VBox>
          </left>
          <center>
-            <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(204, 252, 255, 1);" stylesheets="@../../../CSS/Dash.css" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EBF1D5;" stylesheets="@../../../CSS/Dash.css" BorderPane.alignment="CENTER">
                <children>
-                  <TextArea fx:id="notifTA" layoutX="598.0" layoutY="119.0" prefHeight="349.0" prefWidth="295.0" />
-                  <Button layoutX="693.0" layoutY="494.0" mnemonicParsing="false" onAction="#showNotif" text="Notification" />
+                  <TextArea fx:id="notifTA" layoutX="599.0" layoutY="35.0" prefHeight="349.0" prefWidth="295.0" />
+                  <Button layoutX="707.0" layoutY="407.0" mnemonicParsing="false" onAction="#showNotif" text="Notification" />
                   <Button layoutX="101.0" layoutY="494.0" mnemonicParsing="false" onAction="#payFine" stylesheets="@../../../CSS/Dash.css" text="Fines" />
-                  <Button fx:id="bt" layoutX="263.0" layoutY="494.0" mnemonicParsing="false" onAction="#button" text="Displayinfo" />
                   <Button layoutX="415.0" layoutY="494.0" mnemonicParsing="false" text="History" />
                   <Label fx:id="userLB" layoutX="101.0" layoutY="125.0" />
+                  <Label layoutX="38.0" layoutY="71.0" prefHeight="108.0" prefWidth="213.0" styleClass="account" stylesheets="@../../../CSS/Dash.css" text="Label" />
                </children></AnchorPane>
          </center>
       </BorderPane>

@@ -1,27 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.materialfx.controls.legacy.MFXLegacyListView?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.SignUpScreen">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #EBF1D5;" stylesheets="@../../../CSS/signup.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.SignUpScreen">
    <children>
-      <Label layoutX="553.0" layoutY="76.0" prefHeight="77.0" prefWidth="117.0" text="Sign Up">
+      <MFXLegacyListView layoutX="55.0" layoutY="95.0" prefHeight="531.0" prefWidth="585.0" style="-fx-background-color: #98DD98; -fx-background-radius: 15;" stylesheets="@../../../CSS/signup.css" />
+      <Label layoutX="266.0" layoutY="132.0" prefHeight="77.0" prefWidth="194.0" text="Sign Up Now !">
          <font>
-            <Font size="28.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="confirmSignUpBtn" layoutX="504.0" layoutY="428.0" mnemonicParsing="false" onAction="#confirmSignUp" text="Confirm SignUp" />
-      <Button fx:id="backBtn" layoutX="37.0" layoutY="23.0" mnemonicParsing="false" onAction="#backToLogIn" text="&lt; Back" />
-      <TextField fx:id="usernameTB" layoutX="617.0" layoutY="208.0" />
-      <Text layoutX="512.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
-      <TextField fx:id="passwordTB" layoutX="617.0" layoutY="281.0" />
-      <Text layoutX="512.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-      <Text fx:id="signUpStatus" layoutX="242.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <TextField fx:id="vIDTB" layoutX="617.0" layoutY="357.0" />
-      <Text layoutX="512.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle ID:" />
+      <Text layoutX="131.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Text>
+      <Text layoutX="131.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Text>
+      <Text fx:id="signUpStatus" fill="#ff0101" layoutX="266.0" layoutY="493.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="194.0" />
+      <Text layoutX="130.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle ID:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Text>
+      <MFXTextField fx:id="usernameTB" layoutX="266.0" layoutY="235.0" prefHeight="49.0" prefWidth="212.0" style="-fx-background-color: #EBF1D5;" stylesheets="@../../../CSS/signup.css">
+         <effect>
+            <DropShadow />
+         </effect></MFXTextField>
+      <MFXTextField fx:id="passwordTB" layoutX="266.0" layoutY="322.0" prefHeight="25.0" prefWidth="212.0" style="-fx-background-color: #EBF1D5;" stylesheets="@../../../CSS/signup.css">
+         <effect>
+            <DropShadow />
+         </effect></MFXTextField>
+      <MFXTextField fx:id="vIDTB" layoutX="266.0" layoutY="410.0" prefHeight="34.0" prefWidth="212.0" style="-fx-background-color: #EBF1D5;">
+         <effect>
+            <DropShadow />
+         </effect></MFXTextField>
+      <MFXButton fx:id="confirmSignUpBtn" buttonType="RAISED" depthLevel="LEVEL5" layoutX="295.0" layoutY="513.0" onAction="#confirmSignUp" prefHeight="34.0" prefWidth="106.0" style="-fx-background-color: d64550; -fx-background-radius: 15;" stylesheets="@../../../CSS/signup.css" text="Register" textFill="WHITE" />
+      <Text fill="#d64550" layoutX="391.0" layoutY="589.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <MFXButton fx:id="backBtn" layoutX="391.0" layoutY="571.0" onAction="#backToLogIn" opacity="0.0" prefHeight="25.0" prefWidth="50.0" text="back" />
+      <Text fill="#1c2826" layoutX="221.0" layoutY="589.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
