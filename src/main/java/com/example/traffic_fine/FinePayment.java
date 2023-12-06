@@ -15,8 +15,6 @@ public class FinePayment {
 
     Stage stage;
     Parent root;
-    @FXML
-    Label u_name, u_ID,u_credit;
 
 
     @FXML
@@ -30,8 +28,7 @@ public class FinePayment {
 
     @FXML
     public void loadInformation(){
-        u_name.setText(Dash.user.name);
-        u_ID.setText(Dash.user.vID);
+        Client.sendText("payment,"+Dash.user.name);
 
     }
 }

@@ -1,20 +1,13 @@
 package com.example.traffic_fine;
 
 import Cypher.CypherHandler;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 
-public class Server {
+public class Server{
     ServerSocket serverSocket = null;
     Socket socket = null;
 
@@ -22,6 +15,7 @@ public class Server {
         try {
             serverSocket = new ServerSocket(1234);
             System.out.println("server is online");
+            ServerLogs.addLogs("server is online");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -30,6 +24,7 @@ public class Server {
                 socket = serverSocket.accept();
 
                 System.out.println("A client has connected");
+                ServerLogs.addLogs("A client has connected");
 
                 ClientHandlerAPI clientHandlerAPI = new ClientHandlerAPI(socket);
 
@@ -73,6 +68,9 @@ class ClientHandlerAPI implements Runnable{
         }
         br = new BufferedReader(in);
         bw = new BufferedWriter(out);
+
+        String name = null,pw=null;
+
         ArrayList<String> list = new ArrayList<>();
         BufferedReader dataReader = null;
         try {
@@ -114,10 +112,18 @@ class ClientHandlerAPI implements Runnable{
                                 String data[] = list.get(i).split(",");
 
                                 if(data[0].equals(s[1])&&data[1].equals(s[2])){
+
                                     System.out.println("Data: "+data[0]+" "+data[1]+" S: "+s[1]+" "+s[2]);
+
+                                    name=data[0];
+                                    pw=data[1];
+
                                     bw.write(CypherHandler.encryptor("yes,"+data[0]+","+data[1]+","+data[2]));
                                     bw.newLine();
                                     bw.flush();
+
+                                    ServerLogs.addLogs("Client "+data[0]+" Has logged in");
+
                                     toggle=true;
                                     break;
                                 }
@@ -131,14 +137,39 @@ class ClientHandlerAPI implements Runnable{
                             break;
 
                         case "exit":
+                            ServerLogs.addLogs("A client has closed logged out");
                             System.out.println("A client has closed logged out");
                             break;
 
-//                        case "message":
-//                            bw.write(cp.encryptor(s[1]));
-//                            bw.newLine();
-//                            bw.flush();
-//                            break;
+                        case "update":
+                            for (int i = 0; i < list.size(); i++) {
+                                String na[] = list.get(i).split(",");
+
+                                if(na[0].equals(name)){
+                                    list.set(i,name+","+pw+","+s[1]+","+s[2]+","+s[3]+","+s[4]+","+s[5]+","+s[6]);
+                                }
+                            }
+
+                            BufferedWriter dataWriter = new BufferedWriter(new FileWriter("data.txt"));
+                            String file=null;
+                            for (int i = 0; i < list.size(); i++) {
+                                file+=list.get(i)+"\n";
+                            }
+                            dataWriter.write(file);
+                            dataWriter.close();
+                            ServerLogs.addLogs("Client "+name+" has updated their information");
+                            break;
+
+                        case "payment":
+                            for (int i = 0; i < list.size(); i++) {
+                                String na[] = list.get(i).split(",");
+
+                                if(na[0].equals(name)){
+                                    list.set(i,name+","+pw+","+s[1]+","+s[2]+","+s[3]+","+s[4]+","+s[5]+","+s[6]);
+                                }
+                            }
+
+
                         }
 
                     queryChecker = query;
@@ -160,6 +191,9 @@ class ClientHandlerAPI implements Runnable{
             if(socket!=null)socket.close();
             if(socket!=null)bw.close();
             System.out.println("A client has closed connection");
+            ServerLogs.addLogs("A client has closed connection");
+            ServerLogs.clearLogs();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
