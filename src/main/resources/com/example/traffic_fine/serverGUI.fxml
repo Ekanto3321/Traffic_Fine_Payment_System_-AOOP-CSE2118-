@@ -13,7 +13,7 @@
    <children>
       <TextArea fx:id="logsTA" editable="false" layoutX="821.0" layoutY="71.0" prefHeight="580.0" prefWidth="437.0" />
       <Text layoutX="821.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server Logs" />
-      <Button layoutX="447.0" layoutY="604.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Assign fine" />
+      <Button layoutX="447.0" layoutY="518.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Assign fine" />
       <Button layoutX="1159.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadLogs" prefHeight="26.0" prefWidth="99.0" text="update logs" />
       <Button layoutX="391.0" layoutY="22.0" mnemonicParsing="false" onAction="#loadData" prefHeight="26.0" prefWidth="111.0" text="show all data" />
       <TextField fx:id="searchBox" layoutX="203.0" layoutY="23.0" />
@@ -38,10 +38,12 @@
             <TextField fx:id="previousOffences" editable="false" layoutX="10.0" layoutY="266.0" prefHeight="24.0" prefWidth="235.0" />
          </children>
       </VBox>
-      <VBox layoutX="447.0" layoutY="116.0" prefHeight="346.0" prefWidth="346.0">
+      <VBox layoutX="447.0" layoutY="116.0" prefHeight="384.0" prefWidth="346.0">
          <children>
             <Label text="Reported Offence:" />
             <TextField prefHeight="20.0" prefWidth="346.0" />
+            <Label layoutX="10.0" layoutY="10.0" text="Offence Location:" />
+            <TextField layoutX="10.0" layoutY="26.0" prefHeight="20.0" prefWidth="346.0" />
             <Label layoutX="10.0" layoutY="10.0" text="Offence Details:" />
             <TextArea prefHeight="200.0" prefWidth="200.0" />
             <Label layoutX="10.0" layoutY="10.0" text="Case Tracking number:" />
@@ -55,9 +57,14 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Text layoutX="447.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Status:" />
-      <TextField editable="false" layoutX="578.0" layoutY="505.0" prefHeight="24.0" prefWidth="111.0" />
-      <Text layoutX="447.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount Due:" />
-      <TextField editable="false" layoutX="578.0" layoutY="546.0" prefHeight="24.0" prefWidth="111.0" />
+      <Text layoutX="29.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Status:" />
+      <TextField editable="false" layoutX="160.0" layoutY="519.0" prefHeight="24.0" prefWidth="111.0" />
+      <Text layoutX="29.0" layoutY="577.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount Due:" />
+      <TextField editable="false" layoutX="160.0" layoutY="560.0" prefHeight="24.0" prefWidth="111.0" />
+      <Label layoutX="92.0" layoutY="468.0" text="Ongoing case:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

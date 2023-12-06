@@ -159,6 +159,17 @@ class ClientHandlerAPI implements Runnable{
                             dataWriter.close();
                             ServerLogs.addLogs("Client "+name+" has updated their information");
                             break;
+
+                        case "payment":
+                            for (int i = 0; i < list.size(); i++) {
+                                String na[] = list.get(i).split(",");
+
+                                if(na[0].equals(name)){
+                                    list.set(i,name+","+pw+","+s[1]+","+s[2]+","+s[3]+","+s[4]+","+s[5]+","+s[6]);
+                                }
+                            }
+
+
                         }
 
                     queryChecker = query;
