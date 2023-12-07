@@ -7,23 +7,19 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.FinePayment">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.FinePayment">
    <children>
-      <Button layoutX="198.0" layoutY="611.0" mnemonicParsing="false" text="Click Here" />
-      <Label layoutX="81.0" layoutY="615.0" text="Show Recording" />
-      <Button layoutX="20.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToDash" text="&lt; Back to Dash" />
-      <Button layoutX="199.0" layoutY="539.0" mnemonicParsing="false" onAction="#loadInformation" text="Click Here" />
-      <Label layoutX="81.0" layoutY="543.0" text="Load Information" />
-      <Label layoutX="826.0" layoutY="59.0" prefHeight="64.0" prefWidth="227.0" text="Payment Methods">
+      <Button layoutX="198.0" layoutY="491.0" mnemonicParsing="false" onAction="#loadInformation" text="Click Here" />
+      <Label layoutX="80.0" layoutY="495.0" text="Load Information" />
+      <Label layoutX="272.0" layoutY="38.0" prefHeight="64.0" prefWidth="227.0" text="Payment Methods">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Group layoutX="758.0" layoutY="360.0">
+      <Group layoutX="208.0" layoutY="356.0">
          <children>
             <RadioButton mnemonicParsing="false" text="Bkash">
                <toggleGroup>
@@ -33,36 +29,16 @@
             <RadioButton layoutX="333.0" mnemonicParsing="false" text="OTC" toggleGroup="$toggle" />
          </children>
       </Group>
-      <VBox layoutX="80.0" layoutY="100.0" prefHeight="346.0" prefWidth="346.0">
-         <children>
-            <Label text="Name:" />
-            <TextField fx:id="name" editable="false" prefHeight="24.0" prefWidth="235.0" />
-            <Label text="Age:" />
-            <TextField fx:id="age" editable="false" prefHeight="24.0" prefWidth="235.0" />
-            <Label text="Address:" />
-            <TextField fx:id="address" editable="false" prefHeight="24.0" prefWidth="235.0" />
-            <Label layoutX="10.0" layoutY="90.0" text="Natinal ID no:" />
-            <TextField fx:id="NID" editable="false" layoutX="10.0" layoutY="106.0" prefHeight="24.0" prefWidth="235.0" />
-            <Label layoutX="10.0" layoutY="130.0" text="Lisence no:" />
-            <TextField fx:id="lisenceNo" editable="false" layoutX="10.0" layoutY="146.0" prefHeight="24.0" prefWidth="235.0" />
-            <Label layoutX="10.0" layoutY="170.0" text="Vehicle no:" />
-            <TextField fx:id="vehicleNo" editable="false" layoutX="10.0" layoutY="186.0" prefHeight="24.0" prefWidth="235.0" />
-            <Label layoutX="10.0" layoutY="210.0" text="Vehicle Type" />
-            <TextField fx:id="vehicleType" editable="false" layoutX="10.0" layoutY="226.0" prefHeight="24.0" prefWidth="235.0" />
-            <Label layoutX="10.0" layoutY="250.0" text="Previous offences:" />
-            <TextField fx:id="previousOffences" editable="false" layoutX="10.0" layoutY="266.0" prefHeight="24.0" prefWidth="235.0" />
-         </children>
-      </VBox>
-      <Button layoutX="875.0" layoutY="631.0" mnemonicParsing="false" onAction="#loadInformation" text="Proceed to Payment" />
-      <Text layoutX="819.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Status:" />
-      <TextField editable="false" layoutX="950.0" layoutY="140.0" prefHeight="24.0" prefWidth="111.0" />
-      <Text layoutX="819.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount Due:" />
-      <TextField editable="false" layoutX="950.0" layoutY="181.0" prefHeight="24.0" prefWidth="111.0" />
-      <Text layoutX="819.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tracking No:" />
-      <TextField editable="false" layoutX="950.0" layoutY="226.0" prefHeight="24.0" prefWidth="111.0" />
-      <TextField layoutX="950.0" layoutY="297.0" prefHeight="24.0" prefWidth="111.0" />
-      <Text layoutX="797.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set amount to pay:" />
-      <TextField layoutX="890.0" layoutY="434.0" prefHeight="24.0" prefWidth="202.0" />
-      <Text layoutX="736.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bkash/Card Number:" />
+      <Button layoutX="415.0" layoutY="491.0" mnemonicParsing="false" onAction="#loadInformation" text="Proceed to Payment" />
+      <Text layoutX="265.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Status:" />
+      <TextField fx:id="status" editable="false" layoutX="396.0" layoutY="119.0" prefHeight="24.0" prefWidth="111.0" />
+      <Text layoutX="265.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount Due:" />
+      <TextField fx:id="amountDue" editable="false" layoutX="396.0" layoutY="160.0" prefHeight="24.0" prefWidth="111.0" />
+      <Text layoutX="265.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tracking No:" />
+      <TextField fx:id="trackingNo" editable="false" layoutX="396.0" layoutY="205.0" prefHeight="24.0" prefWidth="111.0" />
+      <TextField fx:id="amountToPay" layoutX="396.0" layoutY="276.0" prefHeight="24.0" prefWidth="111.0" />
+      <Text layoutX="243.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set amount to pay:" />
+      <TextField fx:id="paymentNumber" layoutX="372.0" layoutY="423.0" prefHeight="24.0" prefWidth="202.0" />
+      <Text layoutX="218.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bkash/Card Number:" />
    </children>
 </AnchorPane>

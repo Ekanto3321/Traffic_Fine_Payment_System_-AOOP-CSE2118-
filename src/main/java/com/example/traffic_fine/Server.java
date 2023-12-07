@@ -146,7 +146,7 @@ class ClientHandlerAPI implements Runnable{
                                 String na[] = list.get(i).split(",");
 
                                 if(na[0].equals(name)){
-                                    list.set(i,name+","+pw+","+s[1]+","+s[2]+","+s[3]+","+s[4]+","+s[5]+","+s[6]);
+                                    list.set(i,name+","+pw+","+s[1]+","+s[2]+","+s[3]+","+s[4]+","+s[5]+","+s[6]+",none");
                                 }
                             }
 
@@ -160,17 +160,22 @@ class ClientHandlerAPI implements Runnable{
                             ServerLogs.addLogs("Client "+name+" has updated their information");
                             break;
 
-                        case "payment":
+                        case "fetch":
                             for (int i = 0; i < list.size(); i++) {
                                 String na[] = list.get(i).split(",");
-
                                 if(na[0].equals(name)){
-                                    list.set(i,name+","+pw+","+s[1]+","+s[2]+","+s[3]+","+s[4]+","+s[5]+","+s[6]);
+                                    bw.write(CypherHandler.encryptor(list.get(i)));
+                                    bw.newLine();
+                                    bw.flush();
                                 }
                             }
 
+                        case "payment":
+                            //work here later
 
-                        }
+                    }
+
+
 
                     queryChecker = query;
                 }

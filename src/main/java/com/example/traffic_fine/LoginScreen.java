@@ -51,6 +51,11 @@ public class LoginScreen {
                 User user = new User(data[1],data[2],data[3]);
                 Dash.setUser(user);
 
+                Client.sendText("fetch,"+user.name);
+                Dash.user.userInfo = Client.receiveText();
+
+                System.out.println(Dash.user.userInfo);
+
                 stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                 root = FXMLLoader.load(this.getClass().getResource("Dash.fxml"));
                 Scene scene = new Scene(root);

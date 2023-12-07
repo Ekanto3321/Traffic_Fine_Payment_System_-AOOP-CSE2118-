@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,6 +16,8 @@ public class FinePayment {
 
     Stage stage;
     Parent root;
+    @FXML
+    TextField status,amountDue,trackingNo,amountToPay;
 
 
     @FXML
@@ -28,7 +31,19 @@ public class FinePayment {
 
     @FXML
     public void loadInformation(){
-        Client.sendText("payment,"+Dash.user.name);
+
+        String s[] = Dash.user.userInfo.split(",");
+
+        status.setText(s[15]);
+        amountDue.setText(s[12]);
+        trackingNo.setText(s[13]);
+
+    }
+
+    @FXML
+    public void payFine(){
+
+        Client.sendText("payment");
 
     }
 }

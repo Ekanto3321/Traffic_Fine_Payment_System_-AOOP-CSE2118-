@@ -28,7 +28,7 @@ public class Dash implements Initializable{
     Stage stage;
     Parent root;
     @FXML
-    private TextField tf;
+    private TextField tf,due,off;
 
     @FXML
     private BorderPane bp;
@@ -42,7 +42,7 @@ public class Dash implements Initializable{
     @FXML
     private Button bt;
     @FXML
-    private TextArea notifTA;
+    private TextArea notifTA,det;
 
     @FXML
     void button1(MouseEvent event) {
@@ -56,8 +56,13 @@ public class Dash implements Initializable{
 
     @FXML
     void button3(MouseEvent event) throws IOException {
-        loadpage("feat2");
+        loadpage("finePaymentScreen");
     }
+    @FXML
+    void button4(MouseEvent event) throws IOException {
+        loadpage("profile");
+    }
+
 
     private void loadpage(String page) throws IOException {
         Parent root = null;
@@ -71,10 +76,6 @@ public class Dash implements Initializable{
         bp.setCenter(root);
     }
 
-    @FXML
-    public void button(ActionEvent e){
-        userLB.setText("User: " + user.name+ "\nVehicle: " + user.vID+"\n");
-    }
 
     @FXML //switches from Dash to login Screen
     public void logOut(ActionEvent e) throws IOException {
@@ -97,7 +98,20 @@ public class Dash implements Initializable{
     }
     @FXML
     public void showNotif(){
-        notifTA.setText(user.name+"'s "+"Notifications go here");
+        String s[]=user.userInfo.split(",");
+        if(s[8].equals("ongoing")) notifTA.setText(s[9]);
+    }
+    @FXML
+    public void loadInformation(){
+
+        String s[] = Dash.user.userInfo.split(",");
+
+        if(s[8].equals("ongoing")) {
+            off.setText(s[10]);
+            due.setText(s[12]);
+            det.setText(s[14]);
+        }
+
     }
 
     //gets name of user that logged in

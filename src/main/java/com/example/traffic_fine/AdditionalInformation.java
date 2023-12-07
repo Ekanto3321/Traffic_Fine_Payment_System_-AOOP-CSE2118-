@@ -19,6 +19,8 @@ public class AdditionalInformation {
     public void submit(){
         if(!age.getText().isEmpty()&&!nID.getText().isEmpty()&&!lisenceNo.getText().isEmpty()&&!address.getText().isEmpty()&&!vID.getText().isEmpty()&&!vehicleType.getText().isEmpty()) {
             Client.sendText("update," + vID.getText()+ ","+ age.getText() + "," + nID.getText() + "," + lisenceNo.getText() + ","+vehicleType.getText()+"," + address.getText());
+            Client.sendText("fetch,"+Dash.user.name);
+            Dash.user.userInfo = Client.receiveText();
             text.setText("submitted successfully!");
         }
         else text.setText("fields are empty");

@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 /*
@@ -22,9 +19,9 @@ public class ServerGUIHandler {
 
     //FXML CONTROLS
     @FXML
-    TextArea logsTA;
+    TextArea logsTA, offenseDetails;
     @FXML
-    TextField name,age,address,NID,lisenceNo,vehicleNo,vehicleType,previousOffences,searchBox;
+    TextField name,age,address,NID,lisenceNo,vehicleNo,vehicleType,previousOffences,searchBox,reportedOffense,offenseLocation,trackingNo,fineAmount,amountDue,paymentStat;
 
     @FXML
     public void loadLogs(ActionEvent e){
@@ -60,12 +57,77 @@ public class ServerGUIHandler {
                 lisenceNo.setText(s[5]);
                 vehicleType.setText(s[6]);
                 address.setText(s[7]);
-
-
+                if(s[8].equals("ongoing")){
+                    amountDue.setText(s[12]);
+                    paymentStat.setText(s[15]);
+                }
             }
+
         }
 
     }
+    @FXML
+    public void assignCase(){
+        ArrayList<String> list = new ArrayList<>();
+        BufferedReader dataReader = null;
+        try {
+            dataReader = new BufferedReader(new FileReader("data.txt"));
+
+            String st;
+
+            while((st = dataReader.readLine())!=null){
+                list.add(st);
+            }
+
+            dataReader.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        if(reportedOffense.getText() != null && offenseLocation.getText() != null &&
+                fineAmount.getText() != null && trackingNo.getText() != null && offenseDetails.getText() != null) {
+
+            for (int i = 0; i < list.size(); i++) {
+                String na[] = list.get(i).split(",");
+
+                if (na[0].equals(name.getText())) {
+                    String s[] = list.get(i).split(",");
+                    String oldData = s[0]+","+s[1]+","+s[2]+","+s[3]+","+s[4]+","+s[5]+","+s[6]+","+s[7];
+                    list.set(i, oldData + ",ongoing," + "A new fine has been added," + reportedOffense.getText() + ","
+                            + offenseLocation.getText() + "," + fineAmount.getText() + "," + trackingNo.getText() + ","
+                            + offenseDetails.getText() + "," + "unpaid");
+                }
+            }
+
+            BufferedWriter dataWriter = null;
+            try {
+                dataWriter = new BufferedWriter(new FileWriter("data.txt"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            String file = null, fileCheck = " ";
+            for (int i = 0; i < list.size(); i++) {
+
+                file += list.get(i) + "\n";
+            }
+
+            try {
+                if (!fileCheck.equals(file)) {
+                    dataWriter.write(file);
+                    fileCheck = file;
+                    dataWriter.close();
+                }
+                dataWriter.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+
+    }
+
 
     public static void updateLogs(String s){
         logs = (new StringBuilder()).append(s+"\n").toString();
