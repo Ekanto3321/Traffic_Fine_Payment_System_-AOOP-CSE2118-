@@ -1,7 +1,7 @@
-nullnullnullnullnullnullnullnull
+nullnullnullnullnullnullnullnullnullnullnullnull
 Ekanto,1234,12,12,12,12,12,4,ongoing,A new fine has been added,Cried while parked in the middle of the street,cloud 69,15,sadboi69,dude is just sad should I fine him?,unpaid
 Tritia,1234,4
 Rodshi,1234,4,notification
 Raida,1234,12
 Rufaid,1234,32
-Ekanto2,1234,vid,age,nid,lis,vtype,add,ongoing,A new fine has been added,Grand Theft Auto,Jigatola,5000,2353,Stole a vespa and yelled at the 70yo man saying he "ain't got the rizz"to pick up ladies in that "sweet ride",unpaid
+Ekanto2,1234,vid,age,nid,lis,vtype,add,ongoing,You have paid the fine,Grand Theft Auto,Jigatola,0,2353,Stole a vespa and yelled at the 70yo man saying he "ain't got the rizz"to pick up ladies in that "sweet ride",paid

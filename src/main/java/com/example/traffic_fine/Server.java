@@ -176,9 +176,18 @@ class ClientHandlerAPI implements Runnable{
                                 String na[] = list.get(i).split(",");
 
                                 if(na[0].equals(name)){
-                                    na[12] = s[1];
+
+                                    na[12] = String.valueOf(Integer.parseInt(na[12])-Integer.parseInt(s[1]));
+
+                                    if(Integer.parseInt(na[12])<=Integer.parseInt(s[1])) na[15]="paid";
+                                    else na[15] = "unpaid";
+
+                                    na[9]="You have paid the fine";
+
                                     list.set(i,na[0]+","+na[1]+","+na[2]+","+na[3]+","+na[4]+","+na[5]+","+na[6]+","+na[7]+","+na[8]+","+na[9]+","+na[10]+","+na[11]+","+na[12]+","+na[13]+","+na[14]+","+na[15]);
-                                    System.out.println(list.get(i));
+                                    bw.write(CypherHandler.encryptor(list.get(i)));
+                                    bw.newLine();
+                                    bw.flush();
                                 }
                             }
 
