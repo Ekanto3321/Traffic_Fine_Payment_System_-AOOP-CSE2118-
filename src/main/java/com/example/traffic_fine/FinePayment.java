@@ -42,8 +42,6 @@ public class FinePayment {
 
     @FXML
     public void payFine(){
-
-        Client.sendText("payment");
-
+        Client.sendText("payment,"+amountToPay.getText());
     }
 }
