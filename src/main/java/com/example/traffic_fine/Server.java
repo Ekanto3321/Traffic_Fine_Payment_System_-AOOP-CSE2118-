@@ -71,23 +71,7 @@ class ClientHandlerAPI implements Runnable{
 
         String name = null,pw=null;
 
-        ArrayList<String> list = new ArrayList<>();
-        BufferedReader dataReader = null;
-        try {
-            dataReader = new BufferedReader(new FileReader("data.txt"));
 
-            String st;
-
-            while((st = dataReader.readLine())!=null){
-                list.add(st);
-            }
-
-            dataReader.close();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 
 
         /*
@@ -95,12 +79,33 @@ class ClientHandlerAPI implements Runnable{
          */
         try {
             while (true) {
-
                 query = CypherHandler.decryptor(br.readLine());
 
                 String s[] = query.split(",");
 
-                if(!queryChecker.equals(query)){
+                if(true){
+
+
+                    ArrayList<String> list = new ArrayList<>();
+                    BufferedReader dataReader = null;
+                    try {
+                        dataReader = new BufferedReader(new FileReader("data.txt"));
+
+                        String st;
+
+                        while((st = dataReader.readLine())!=null){
+                            list.add(st);
+                        }
+
+                        dataReader.close();
+                    } catch (FileNotFoundException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
+
+
                     switch (s[0]){
                         case "signup":
                             ServerLoginSignupHandler.signUp(s[1]+","+s[2]+","+s[3]);
@@ -179,10 +184,16 @@ class ClientHandlerAPI implements Runnable{
 
                                     na[12] = String.valueOf(Integer.parseInt(na[12])-Integer.parseInt(s[1]));
 
-                                    if(Integer.parseInt(na[12])<=Integer.parseInt(s[1])) na[15]="paid";
-                                    else na[15] = "unpaid";
+                                    if(Integer.parseInt(na[12])<=Integer.parseInt(s[1])) {
+                                        na[15]="paid";
+                                        na[9]="You have paid the fine";
+                                    }
+                                    else{
+                                        na[15] = "unpaid";
+                                        na[9]="You have paid "+s[1];
 
-                                    na[9]="You have paid the fine";
+                                    }
+
 
                                     list.set(i,na[0]+","+na[1]+","+na[2]+","+na[3]+","+na[4]+","+na[5]+","+na[6]+","+na[7]+","+na[8]+","+na[9]+","+na[10]+","+na[11]+","+na[12]+","+na[13]+","+na[14]+","+na[15]);
                                     bw.write(CypherHandler.encryptor(list.get(i)));
@@ -208,9 +219,35 @@ class ClientHandlerAPI implements Runnable{
                     queryChecker = query;
                 }
                 else {
-                    bw.write(CypherHandler.encryptor("no,0,0,0"));
-                    bw.newLine();
-                    bw.flush();
+
+//                    ArrayList<String> list2 = new ArrayList<>();
+//                    try {
+//                        dataReader = new BufferedReader(new FileReader("data.txt"));
+//
+//                        String st;
+//
+//                        while((st = dataReader.readLine())!=null){
+//                            list2.add(st);
+//                        }
+//
+//                        dataReader.close();
+//                    } catch (FileNotFoundException e) {
+//                        throw new RuntimeException(e);
+//                    } catch (IOException e) {
+//                        throw new RuntimeException(e);
+//                    }
+//                    for (int i = 0; i < list2.size(); i++) {
+//                        String na[] = list2.get(i).split(",");
+//                        if(na[0].equals(name)){
+//                            bw.write(CypherHandler.encryptor(list2.get(i)));
+//                            bw.newLine();
+//                            bw.flush();
+//                        }
+//                    }
+
+//                    bw.write(CypherHandler.encryptor("no,0,0,0"));
+//                    bw.newLine();
+//                    bw.flush();
                 }
 
             }

@@ -111,11 +111,6 @@ public class Dash implements Initializable{
         stage.show();
     }
     @FXML
-    public void showNotif(){
-        String s[]=user.userInfo.split(",");
-        if(s[8].equals("ongoing")) notifTA.setText(s[9]);
-    }
-    @FXML
     public void loadInformation(){
 
         String s[] = Dash.user.userInfo.split(",");
@@ -142,7 +137,12 @@ public class Dash implements Initializable{
         refreshTimeline = new Timeline(
                 new KeyFrame(javafx.util.Duration.seconds(1), event -> {
                     // Call the loadInformation method to refresh the information
+                    Client.sendText("fetch,"+user.name);
+                    Dash.user.userInfo = Client.receiveText();
                     loadInformation();
+                    String s[]=user.userInfo.split(",");
+                    if(s[8].equals("ongoing")) notifTA.setText(s[9]);
+
                 })
         );
         refreshTimeline.setCycleCount(Timeline.INDEFINITE);

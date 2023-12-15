@@ -1,12 +1,17 @@
 package com.example.traffic_fine;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 /*
 
@@ -14,20 +19,15 @@ FIX THE LOGGING SYSTEM
 
  */
 
-public class ServerGUIHandler {
+public class ServerGUIHandler implements Initializable {
     static String logs="";
-
+    private Timeline refreshTimeline;
     //FXML CONTROLS
     @FXML
     TextArea logsTA, offenseDetails;
     @FXML
     TextField name,age,address,NID,lisenceNo,vehicleNo,vehicleType,previousOffences,searchBox,reportedOffense,offenseLocation,trackingNo,fineAmount,amountDue,paymentStat;
 
-    @FXML
-    public void loadLogs(ActionEvent e){
-        logsTA.appendText(ServerLogs.readLogs());
-
-    }
 
 
     @FXML
@@ -134,4 +134,16 @@ public class ServerGUIHandler {
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        refreshTimeline = new Timeline(
+                new KeyFrame(javafx.util.Duration.seconds(1), event -> {
+                    String temp = ServerLogs.readLogs();
+                    logsTA.setText(ServerLogs.readLogs());
+
+                })
+        );
+        refreshTimeline.setCycleCount(Timeline.INDEFINITE);
+        refreshTimeline.play();
+    }
 }
