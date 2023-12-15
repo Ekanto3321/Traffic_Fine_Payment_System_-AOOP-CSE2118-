@@ -115,7 +115,7 @@ public class Dash implements Initializable{
 
         String s[] = Dash.user.userInfo.split(",");
 
-        if(s[8].equals("ongoing")) {
+        if(s.length>10) {
             off.setText(s[10]);
             due.setText(s[12]);
             det.setText(s[14]);
@@ -141,7 +141,7 @@ public class Dash implements Initializable{
                     Dash.user.userInfo = Client.receiveText();
                     loadInformation();
                     String s[]=user.userInfo.split(",");
-                    if(s[8].equals("ongoing")) notifTA.setText(s[9]);
+                    if(s.length>10&&s[8].equals("ongoing")) notifTA.setText(s[9]);
 
                 })
         );

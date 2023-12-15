@@ -13,8 +13,6 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.FinePayment">
    <children>
-      <Button layoutX="198.0" layoutY="491.0" mnemonicParsing="false" onAction="#loadInformation" text="Click Here" />
-      <Label layoutX="80.0" layoutY="495.0" text="Load Information" />
       <Label layoutX="272.0" layoutY="38.0" prefHeight="64.0" prefWidth="227.0" text="Payment Methods">
          <font>
             <Font size="23.0" />
@@ -41,6 +39,6 @@
       <Text layoutX="243.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set amount to pay:" />
       <TextField fx:id="paymentNumber" layoutX="372.0" layoutY="423.0" prefHeight="24.0" prefWidth="202.0" />
       <Text layoutX="218.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bkash/Card Number:" />
-      <MFXButton layoutX="44.0" layoutY="38.0" onAction="#backToDash" text="Button" />
+      <MFXButton layoutX="44.0" layoutY="38.0" onAction="#backToDash" text="&lt;- back" />
    </children>
 </AnchorPane>

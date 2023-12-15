@@ -84,7 +84,7 @@
                         <Font size="23.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="off" layoutX="46.0" layoutY="174.0" prefHeight="42.0" prefWidth="430.0" />
+                  <TextField fx:id="off" layoutX="148.0" layoutY="241.0" prefHeight="42.0" prefWidth="430.0" />
                   <AnchorPane layoutX="46.0" layoutY="47.0" prefHeight="103.0" prefWidth="205.0" style="-fx-background-color: ffffff; -fx-background-radius: 10;" stylesheets="@../../../CSS/Dash.css">
                      <effect>
                         <DropShadow>
@@ -111,7 +111,12 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <MFXButton layoutX="281.0" layoutY="86.0" onAction="#payButton" />
+                  <MFXButton layoutX="281.0" layoutY="86.0" onAction="#payButton" text="Pay" />
+                  <Label layoutX="599.0" layoutY="42.0" prefHeight="56.0" prefWidth="151.0" text="Notifications">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
                </children></AnchorPane>
          </center>
       </BorderPane>
