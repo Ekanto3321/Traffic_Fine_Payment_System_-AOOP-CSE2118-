@@ -187,10 +187,12 @@ class ClientHandlerAPI implements Runnable{
                                     if(Integer.parseInt(na[12])<=Integer.parseInt(s[1])) {
                                         na[15]="paid";
                                         na[9]="You have paid the fine";
+                                        ServerLogs.addLogs("Client "+name+" has paid their fine fully");
                                     }
                                     else{
                                         na[15] = "unpaid";
                                         na[9]="You have paid "+s[1];
+                                        ServerLogs.addLogs("Client "+name+" has partially paid their fine by "+s[1]);
 
                                     }
 
