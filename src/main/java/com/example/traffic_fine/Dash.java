@@ -1,5 +1,7 @@
 package com.example.traffic_fine;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +30,10 @@ public class Dash implements Initializable{
     Stage stage;
     Parent root;
     @FXML
-    private TextField tf,due,off;
+    private TextField tf,off;
+
+    @FXML
+    private Label due;
 
     @FXML
     private BorderPane bp;
@@ -56,7 +61,7 @@ public class Dash implements Initializable{
 
     @FXML
     void button3(MouseEvent event) throws IOException {
-        loadpage("finePaymentScreen");
+        loadpage("feat2");
     }
     @FXML
     void button4(MouseEvent event) throws IOException {
@@ -82,6 +87,15 @@ public class Dash implements Initializable{
         Client.sendText("exit");
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         root = FXMLLoader.load(this.getClass().getResource("loginScreen.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void payButton(ActionEvent e) throws IOException {
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        root = FXMLLoader.load(this.getClass().getResource("finePaymentScreen.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -121,10 +135,25 @@ public class Dash implements Initializable{
 
 
 
-
+    private Timeline refreshTimeline;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        refreshTimeline = new Timeline(
+                new KeyFrame(javafx.util.Duration.seconds(1), event -> {
+                    // Call the loadInformation method to refresh the information
+                    loadInformation();
+                })
+        );
+        refreshTimeline.setCycleCount(Timeline.INDEFINITE);
+        refreshTimeline.play();
     }
+
+    @FXML
+    public void stopAutoRefresh() {
+        if (refreshTimeline != null) {
+            refreshTimeline.stop();
+        }
+    }
+
 }
