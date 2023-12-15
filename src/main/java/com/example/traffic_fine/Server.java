@@ -211,7 +211,6 @@ class ClientHandlerAPI implements Runnable{
                             }
                             dataWriter.write(file);
                             dataWriter.close();
-                            ServerLogs.addLogs("Client "+name+" has paid their fine");
                             break;
 
                     }

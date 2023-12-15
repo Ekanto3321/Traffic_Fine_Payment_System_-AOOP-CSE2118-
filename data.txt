@@ -1,8 +1,8 @@
-nullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnull
+nullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnull
 Ekanto,1234,12,12,12,12,12,4,ongoing,A new fine has been added,Cried while parked in the middle of the street,cloud 69,15,sadboi69,dude is just sad should I fine him?,unpaid
 Tritia,1234,134,12,500,13,vehicle,jigatola,none
 Rodshi,1234,4,notification
 Raida,1234,12,13,54,2,cycle,munshigonj,ongoing,A new fine has been added,beating rodshi,bashay,70000,4007,mair dise rodshi re,unpaid
 Rufaid,1234,123,1,none,1234,tricycle,munshiganj,ongoing,You have paid 2000,crying again,bashay,3000,1245,cried loudy,unpaid
-Ekanto2,1234,vid,age,nid,lis,vtype,add,ongoing,You have paid the fine,2r,qwr,0,13,qwr,paid
+Ekanto2,1234,vid,age,nid,lis,vtype,add,ongoing,You have paid the fine,crying again,bashay,0,1245,cried loudy,paid
 
