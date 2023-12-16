@@ -115,7 +115,7 @@ public class Dash implements Initializable{
 
         String s[] = Dash.user.userInfo.split(",");
 
-        if(s.length>10) {
+        if(s.length>10&&Integer.parseInt(s[12])>0) {
             off.setText(s[10]);
             due.setText(s[12]);
             det.setText(s[14]);
