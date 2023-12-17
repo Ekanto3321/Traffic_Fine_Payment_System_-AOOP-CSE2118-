@@ -1,37 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../CSS/feat1.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.AdditionalInformation">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../CSS/feat1.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.AdditionalInformation">
    <children>
-      <Button layoutX="69.0" layoutY="360.0" mnemonicParsing="false" onAction="#submit" text="Submit changes" />
-      <Text layoutX="75.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Additional Information:">
+      <Button layoutX="348.0" layoutY="200.0" mnemonicParsing="false" onAction="#submit" style="-fx-background-color: EA9E8D;" text="Submit changes">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Text fill="#d64550" layoutX="39.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Additional Information:">
+         <font>
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
-      <VBox layoutX="69.0" layoutY="120.0" prefHeight="202.0" prefWidth="254.0">
+      <VBox layoutX="39.0" layoutY="44.0" prefHeight="202.0" prefWidth="254.0">
          <children>
-            <Text layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-            <TextField fx:id="nID" layoutX="10.0" layoutY="26.0" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Age:" />
-            <TextField fx:id="age" />
-            <Text layoutX="10.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lisence no:" />
-            <TextField fx:id="lisenceNo" layoutX="10.0" layoutY="66.0" />
-            <Text layoutX="10.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle Type:" />
-            <TextField fx:id="vehicleType" layoutX="10.0" layoutY="106.0" />
-            <Text layoutX="10.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle ID:" />
-            <TextField fx:id="vID" layoutX="10.0" layoutY="146.0" />
+            <Text layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Text>
+            <MFXTextField fx:id="nID" prefHeight="49.0" prefWidth="221.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </MFXTextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Age:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Text>
+            <MFXTextField fx:id="age" prefHeight="49.0" prefWidth="219.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </MFXTextField>
+            <Text layoutX="10.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lisence no:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Text>
+            <MFXTextField fx:id="lisenceNo" prefHeight="49.0" prefWidth="219.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </MFXTextField>
+            <Text layoutX="10.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle Type:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Text>
+            <MFXTextField fx:id="vehicleType" prefHeight="49.0" prefWidth="219.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </MFXTextField>
+            <Text layoutX="10.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle ID:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Text>
+            <MFXTextField fx:id="vID" prefHeight="49.0" prefWidth="219.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </MFXTextField>
          </children>
       </VBox>
-      <TextArea fx:id="address" layoutX="350.0" layoutY="147.0" prefHeight="81.0" prefWidth="218.0" />
-      <Text layoutX="350.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" />
-      <Text fx:id="text" layoutX="71.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="457.6933822631836" />
+      <TextArea fx:id="address" layoutX="300.0" layoutY="60.0" prefHeight="81.0" prefWidth="218.0" style="-fx-background-radius: 7;">
+         <effect>
+            <DropShadow />
+         </effect></TextArea>
+      <Text layoutX="300.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
+      <Text fx:id="text" layoutX="287.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="266.6933822631836" />
    </children>
 </AnchorPane>
