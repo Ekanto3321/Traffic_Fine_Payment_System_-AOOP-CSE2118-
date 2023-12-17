@@ -4,19 +4,23 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="777.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.Profile">
+<AnchorPane prefHeight="500.0" prefWidth="777.0" style="-fx-background-color: #EBF1D5;" stylesheets="@../../../CSS/profile.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.Profile">
    <children>
       <VBox layoutX="45.0" layoutY="66.0" prefHeight="346.0" prefWidth="346.0">
          <children>
-            <Label text="Name:" />
+            <Label text="National ID">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <TextField fx:id="name" editable="false" prefHeight="24.0" prefWidth="235.0" />
-            <Label text="Age:" />
+            <Label layoutX="10.0" layoutY="90.0" text="Name" />
+            <TextField fx:id="NID" editable="false" layoutX="10.0" layoutY="106.0" prefHeight="24.0" prefWidth="235.0" />
+            <Label text="Age" />
             <TextField fx:id="age" editable="false" prefHeight="24.0" prefWidth="235.0" />
             <Label text="Address:" />
             <TextField fx:id="address" editable="false" prefHeight="24.0" prefWidth="235.0" />
-            <Label layoutX="10.0" layoutY="90.0" text="Natinal ID no:" />
-            <TextField fx:id="NID" editable="false" layoutX="10.0" layoutY="106.0" prefHeight="24.0" prefWidth="235.0" />
             <Label layoutX="10.0" layoutY="130.0" text="Lisence no:" />
             <TextField fx:id="lisenceNo" editable="false" layoutX="10.0" layoutY="146.0" prefHeight="24.0" prefWidth="235.0" />
             <Label layoutX="10.0" layoutY="170.0" text="Vehicle no:" />
@@ -27,6 +31,9 @@
             <TextField fx:id="previousOffences" editable="false" layoutX="10.0" layoutY="266.0" prefHeight="24.0" prefWidth="235.0" />
          </children>
       </VBox>
-      <Label layoutX="45.0" layoutY="33.0" text="Profile" />
+      <Label layoutX="45.0" layoutY="33.0" text="Profile">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
    </children>
 </AnchorPane>

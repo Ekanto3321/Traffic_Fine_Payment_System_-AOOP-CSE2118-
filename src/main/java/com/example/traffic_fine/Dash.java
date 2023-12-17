@@ -33,7 +33,7 @@ public class Dash implements Initializable{
     private TextField tf,off;
 
     @FXML
-    private Label due;
+    private Label due,name;
 
     @FXML
     private BorderPane bp;
@@ -142,6 +142,7 @@ public class Dash implements Initializable{
                     loadInformation();
                     String s[]=user.userInfo.split(",");
                     if(s.length>10&&s[8].equals("ongoing")) notifTA.setText(s[9]);
+                    name.setText(s[4]);
 
                 })
         );
