@@ -183,8 +183,7 @@ class ClientHandlerAPI implements Runnable{
                                 if(na[0].equals(name)){
 
                                     na[12] = String.valueOf(Integer.parseInt(na[12])-Integer.parseInt(s[1]));
-
-                                    if(Integer.parseInt(na[12])<=Integer.parseInt(s[1])) {
+                                    if(Integer.parseInt(na[12])<=0) {
                                         na[15]="paid";
                                         na[9]="You have paid the fine";
                                         ServerLogs.addLogs("Client "+name+" has paid their fine fully");
