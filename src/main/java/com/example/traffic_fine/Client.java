@@ -23,7 +23,7 @@ public class Client{
     Client(){
         try {
 
-            socket = new Socket("10.10.254.220", 1234);
+            socket = new Socket("localhost", 1234);
             out = new OutputStreamWriter(socket.getOutputStream());
             bw = new BufferedWriter(out);
             in = new InputStreamReader(socket.getInputStream());

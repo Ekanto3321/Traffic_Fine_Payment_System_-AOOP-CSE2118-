@@ -142,6 +142,9 @@ public class ServerGUIHandler implements Initializable {
                 new KeyFrame(javafx.util.Duration.seconds(1), event -> {
                     String temp = ServerLogs.readLogs();
                     logsTA.setText(ServerLogs.readLogs());
+                    if(!searchBox.getText().equals("")){
+                        loadData();
+                    }
 
                 })
         );
