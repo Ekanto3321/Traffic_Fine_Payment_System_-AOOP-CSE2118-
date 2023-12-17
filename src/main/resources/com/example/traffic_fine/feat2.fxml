@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" stylesheets="@../../../CSS/feat2.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.AdditionalInformation">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../CSS/feat2.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.AdditionalInformation">
    <children>
-      <TextArea layoutX="40.0" layoutY="66.0" prefHeight="280.0" prefWidth="367.0" />
-      <Label layoutX="40.0" layoutY="44.0" text="Personal Information:" />
+      <Label layoutX="219.0" prefHeight="45.0" prefWidth="145.0" text="Traffic Rules:">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></Label>
+      <Hyperlink accessibleText="http://www.brta.gov.bd/site/view/legislative_information/%E0%A6%86%E0%A6%87%E0%A6%A8,-%E0%A6%AC%E0%A6%BF%E0%A6%A7%E0%A6%BF-%E0%A6%93-%E0%A6%A8%E0%A7%80%E0%A6%A4%E0%A6%BF%E0%A6%AE%E0%A6%BE%E0%A6%B2%E0%A6%BE" layoutX="333.0" layoutY="113.0" text="here" />
+      <Text layoutX="213.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rules can be found " />
    </children>
 </AnchorPane>
