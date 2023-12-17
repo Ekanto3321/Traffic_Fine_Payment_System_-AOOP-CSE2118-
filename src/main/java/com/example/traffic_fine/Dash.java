@@ -13,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -49,6 +51,9 @@ public class Dash implements Initializable{
     @FXML
     private TextArea notifTA,det;
 
+
+
+
     @FXML
     void button1(MouseEvent event) {
         bp.setCenter(ap);
@@ -68,6 +73,11 @@ public class Dash implements Initializable{
         loadpage("profile");
     }
 
+    @FXML
+    void button5(MouseEvent event) throws IOException {
+        loadpage("feat3");
+    }
+
 
     private void loadpage(String page) throws IOException {
         Parent root = null;
@@ -80,6 +90,9 @@ public class Dash implements Initializable{
         }
         bp.setCenter(root);
     }
+
+
+
 
 
     @FXML //switches from Dash to login Screen
@@ -143,6 +156,7 @@ public class Dash implements Initializable{
                     String s[]=user.userInfo.split(",");
                     if(s.length>10&&s[8].equals("ongoing")) notifTA.setText(s[9]);
                     name.setText(s[4]);
+
 
                 })
         );

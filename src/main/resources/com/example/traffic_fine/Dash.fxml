@@ -45,6 +45,14 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </MFXButton>
+                  <MFXButton buttonType="RAISED" depthLevel="LEVEL5" onMouseClicked="#button5" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EBF1D5; -fx-background-radius: 10;" stylesheets="@../../../CSS/Dash.css" text="Tax Token">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="15.0" />
+                     </VBox.margin>
+                  </MFXButton>
                   <MFXButton buttonType="RAISED" depthLevel="LEVEL5" onMouseClicked="#button3" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: #EBF1D5; -fx-background-radius: 10;" stylesheets="@../../../CSS/Dash.css" text="Traffic Rules">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="15.0" />
@@ -119,9 +127,14 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
+                        <Label layoutX="119.0" layoutY="34.0" text="\\=">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
-                  <MFXButton buttonType="RAISED" layoutX="310.0" layoutY="82.0" onAction="#payButton" prefHeight="103.0" prefWidth="205.0" style="-fx-background-radius: 10; -fx-background-color: #d64550;" stylesheets="@../../../CSS/Dash.css" text="Online Pay" textFill="WHITE">
+                  <MFXButton buttonType="RAISED" layoutX="310.0" layoutY="82.0" onAction="#payButton" prefHeight="103.0" prefWidth="205.0" style="-fx-background-radius: 10; -fx-background-color: #d64550;" stylesheets="@../../../CSS/Dash.css" text="           Online Pay" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font></MFXButton>
@@ -130,20 +143,35 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="name" layoutX="117.0" layoutY="14.0" prefHeight="35.0" prefWidth="193.0" textFill="#d64550">
+                  <Label fx:id="name" layoutX="202.0" layoutY="16.0" prefHeight="35.0" prefWidth="193.0" textFill="#d64550">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font></Label>
-                  <Label layoutX="44.0" layoutY="14.0" text="Hello" textFill="#d64550">
+                  <Label layoutX="134.0" layoutY="16.0" text="Hello" textFill="#d64550">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <MFXButton buttonType="RAISED" depthLevel="LEVEL1" layoutX="657.0" layoutY="88.0" onMouseClicked="#button2" prefHeight="40.0" prefWidth="199.0" style="-fx-background-color: #98DD98; -fx-background-radius: 10;" stylesheets="@../../../CSS/Dash.css" text="Update Information">
+                  <MFXButton buttonType="RAISED" depthLevel="LEVEL1" layoutX="668.0" layoutY="134.0" onMouseClicked="#button2" prefHeight="40.0" prefWidth="151.0" style="-fx-background-color: #98DD98; -fx-background-radius: 10;" stylesheets="@../../../CSS/Dash.css" text="Update Information">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </MFXButton>
+                  <ImageView fitHeight="90.0" fitWidth="134.0" layoutX="44.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Logo/sportscar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="86.0" fitWidth="118.0" layoutX="298.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Logo/pay.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="59.0" fitWidth="57.0" layoutX="715.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Logo/profile.png" />
+                     </image>
+                  </ImageView>
                </children></AnchorPane>
          </center>
       </BorderPane>
