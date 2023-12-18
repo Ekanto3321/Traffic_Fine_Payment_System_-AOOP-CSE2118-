@@ -35,7 +35,6 @@ public class Feat3 implements Initializable {
 
                 })
         );
-        refreshTimeline.setCycleCount(Timeline.INDEFINITE);
-        refreshTimeline.play();
+
     }
 }
