@@ -14,27 +14,27 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #98DD98;" stylesheets="@../../../CSS/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.LoginScreen">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #98DD98;" stylesheets="@../../../CSS/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.LoginScreen">
    <children>
       <MFXLegacyListView layoutX="791.0" layoutY="51.0" prefHeight="582.0" prefWidth="438.0" style="-fx-background-color: #EBF1D5; -fx-background-radius: 10;" stylesheets="@../../../CSS/login.css" />
-      <Label layoutX="901.0" layoutY="192.0" text="Nationa Id">
+      <Label layoutX="930.0" layoutY="192.0" text="Nationa Id">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>
-      <Label layoutX="904.0" layoutY="305.0" text="Password">
+      <Label layoutX="935.0" layoutY="301.0" text="Password">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>
       <Label fx:id="loginStatus" layoutX="896.0" layoutY="417.0" prefHeight="17.0" prefWidth="315.0" textFill="#ff0707" />
-      <Text layoutX="180.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Traffic Penalty Ticketing Portal" textAlignment="CENTER" wrappingWidth="457.2333984375">
+      <Text fill="#d64550" layoutX="180.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Traffic Penalty Ticketing Portal" textAlignment="CENTER" wrappingWidth="457.2333984375">
          <font>
             <Font name="System Bold" size="42.0" />
          </font></Text>
-      <MFXTextField fx:id="usernameTF" layoutX="901.0" layoutY="227.0" prefHeight="49.0" prefWidth="219.0">
+      <MFXTextField fx:id="usernameTF" layoutX="930.0" layoutY="227.0" prefHeight="49.0" prefWidth="219.0">
          <effect>
             <DropShadow />
          </effect></MFXTextField>
-      <MFXPasswordField fx:id="pwTF" layoutX="901.0" layoutY="340.0" prefHeight="49.0" prefWidth="219.0">
+      <MFXPasswordField fx:id="pwTF" layoutX="930.0" layoutY="336.0" prefHeight="49.0" prefWidth="219.0">
          <effect>
             <DropShadow />
          </effect></MFXPasswordField>
@@ -64,5 +64,20 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Text>
+      <ImageView fitHeight="49.0" fitWidth="63.0" layoutX="855.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Logo/profile.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="59.0" layoutX="851.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Logo/password.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="962.0" layoutY="113.0" text="Log in" textFill="#d64550">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

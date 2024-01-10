@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../CSS/feat2.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.AdditionalInformation">
+<AnchorPane prefHeight="593.0" prefWidth="968.0" stylesheets="@../../../CSS/feat2.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.AdditionalInformation">
    <children>
-      <Label layoutX="219.0" prefHeight="45.0" prefWidth="145.0" text="Traffic Rules:">
+      <Label layoutX="358.0" prefHeight="51.0" prefWidth="169.0" text="Traffic Rules" textFill="#d64550">
          <font>
-            <Font name="System Bold" size="19.0" />
+            <Font name="System Bold" size="24.0" />
          </font></Label>
-      <Hyperlink accessibleText="http://www.brta.gov.bd/site/view/legislative_information/%E0%A6%86%E0%A6%87%E0%A6%A8,-%E0%A6%AC%E0%A6%BF%E0%A6%A7%E0%A6%BF-%E0%A6%93-%E0%A6%A8%E0%A7%80%E0%A6%A4%E0%A6%BF%E0%A6%AE%E0%A6%BE%E0%A6%B2%E0%A6%BE" layoutX="333.0" layoutY="113.0" text="here" />
-      <Text layoutX="213.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rules can be found " />
+      <TextArea layoutX="34.0" layoutY="48.0" prefHeight="530.0" prefWidth="884.0" style="-fx-background-radius: 10; -fx-background-color: #98DD98;" text="Driving on the Left:&#10;In Bangladesh, vehicles should be driven on the left side of the road.&#10;&#10;Traffic Signals and Signs:&#10;Adhere to traffic signals, signs, and road markings. Follow the instructions given by traffic police.&#10;&#10;Speed Limits:&#10;Observe speed limits specified for different types of roads. Speeding is a common cause of accidents, so it's essential to drive within the prescribed limits.&#10;&#10;Overtaking Rules:&#10;Overtake only when it is safe and legal to do so. Avoid overtaking in areas with poor visibility, intersections, and pedestrian crossings.&#10;&#10;Seat Belts:&#10;Both the driver and passengers are required to wear seat belts. It is crucial for safety and is enforced by law.&#10;&#10;Mobile Phones:&#10;Using mobile phones while driving is often prohibited or restricted. It is safer to pull over if you need to make a call or send a message.&#10;&#10;Drinking and Driving:&#10;Driving under the influence of alcohol or drugs is strictly prohibited. There are strict penalties for drunk driving offenses.&#10;&#10;Helmet Usage:&#10;Motorcyclists and their passengers are often required to wear helmets. This is a safety measure to protect against head injuries.&#10;&#10;Horn Usage:&#10;Use the horn judiciously. In some areas, unnecessary honking is penalized, especially during the night.&#10;&#10;Lane Discipline:&#10;Follow lane discipline and stay within your lane. Avoid abrupt lane changes and maintain a safe distance from the vehicle in front.">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </TextArea>
    </children>
 </AnchorPane>

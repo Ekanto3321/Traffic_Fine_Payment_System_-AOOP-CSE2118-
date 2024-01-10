@@ -10,14 +10,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #EBF1D5;" stylesheets="@../../../CSS/finePaymentScreen.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.FinePayment">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #EBF1D5;" stylesheets="@../../../CSS/finePaymentScreen.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.FinePayment">
    <children>
-      <Label layoutX="272.0" layoutY="38.0" prefHeight="64.0" prefWidth="227.0" text="Payment Methods">
+      <Label layoutX="283.0" layoutY="19.0" prefHeight="64.0" prefWidth="227.0" text="Payment Methods" textFill="#d64550">
          <font>
-            <Font size="23.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Group layoutX="208.0" layoutY="356.0">
+      <Group layoutX="218.0" layoutY="334.0">
          <children>
             <RadioButton mnemonicParsing="false" text="Bkash">
                <toggleGroup>
@@ -27,17 +27,38 @@
             <RadioButton layoutX="333.0" mnemonicParsing="false" text="OTC" toggleGroup="$toggle" />
          </children>
       </Group>
-      <Text layoutX="265.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Status:" />
-      <TextField fx:id="status" editable="false" layoutX="396.0" layoutY="119.0" prefHeight="24.0" prefWidth="111.0" />
-      <Text layoutX="265.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount Due:" />
-      <TextField fx:id="amountDue" editable="false" layoutX="396.0" layoutY="160.0" prefHeight="24.0" prefWidth="111.0" />
-      <Text layoutX="265.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tracking No:" />
-      <TextField fx:id="trackingNo" editable="false" layoutX="396.0" layoutY="205.0" prefHeight="24.0" prefWidth="111.0" />
-      <TextField fx:id="amountToPay" layoutX="396.0" layoutY="276.0" prefHeight="24.0" prefWidth="111.0" />
-      <Text layoutX="243.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set amount to pay:" />
+      <Text layoutX="225.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Status">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Text>
+      <TextField fx:id="status" editable="false" layoutX="396.0" layoutY="133.0" prefHeight="24.0" prefWidth="111.0" />
+      <Text layoutX="227.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount Due">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Text>
+      <TextField fx:id="amountDue" editable="false" layoutX="396.0" layoutY="89.0" prefHeight="24.0" prefWidth="111.0" />
+      <Text layoutX="229.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tracking No">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Text>
+      <TextField fx:id="trackingNo" editable="false" layoutX="396.0" layoutY="177.0" prefHeight="24.0" prefWidth="111.0" />
+      <TextField fx:id="amountToPay" layoutX="372.0" layoutY="386.0" prefHeight="25.0" prefWidth="202.0" />
+      <Text layoutX="175.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set amount to pay">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Text>
       <TextField fx:id="paymentNumber" layoutX="372.0" layoutY="423.0" prefHeight="24.0" prefWidth="202.0" />
-      <Text layoutX="218.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bkash/Card Number:" />
-      <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="44.0" layoutY="38.0" onAction="#backToDash" style="-fx-background-radius: 10;" stylesheets="@../../../CSS/finePaymentScreen.css" text="Back" />
-      <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="372.0" layoutY="486.0" onAction="#payFine" prefHeight="25.0" prefWidth="167.0" style="-fx-background-radius: 7;" stylesheets="@../../../CSS/finePaymentScreen.css" text="Proceed to Payment" />
+      <Text layoutX="175.0" layoutY="442.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bkash/Card Number">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Text>
+      <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="44.0" layoutY="38.0" onAction="#backToDash" style="-fx-background-radius: 10; -fx-background-color: EA9E8D;" stylesheets="@../../../CSS/finePaymentScreen.css" text="Back">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></MFXButton>
+      <MFXButton buttonType="RAISED" depthLevel="LEVEL5" layoutX="372.0" layoutY="486.0" onAction="#payFine" prefHeight="25.0" prefWidth="167.0" style="-fx-background-radius: 7; -fx-background-color: d64550;" stylesheets="@../../../CSS/finePaymentScreen.css" text="Proceed to Payment" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></MFXButton>
    </children>
 </AnchorPane>

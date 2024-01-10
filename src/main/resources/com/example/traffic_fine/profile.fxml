@@ -1,39 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="777.0" style="-fx-background-color: #EBF1D5;" stylesheets="@../../../CSS/profile.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.Profile">
+<AnchorPane prefHeight="659.0" prefWidth="898.0" style="-fx-background-color: #EBF1D5;" stylesheets="@../../../CSS/profile.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.traffic_fine.Profile">
    <children>
-      <VBox layoutX="45.0" layoutY="66.0" prefHeight="346.0" prefWidth="346.0">
+      <VBox layoutX="43.0" layoutY="8.0" prefHeight="346.0" prefWidth="346.0">
          <children>
-            <Label text="National ID">
+            <Label prefHeight="20.0" prefWidth="68.0" text="National ID">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <TextField fx:id="name" editable="false" prefHeight="24.0" prefWidth="235.0" />
-            <Label layoutX="10.0" layoutY="90.0" text="Name" />
-            <TextField fx:id="NID" editable="false" layoutX="10.0" layoutY="106.0" prefHeight="24.0" prefWidth="235.0" />
+            <Label />
+            <MFXTextField fx:id="name" prefHeight="38.0" prefWidth="343.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </MFXTextField>
+            <Label layoutX="10.0" layoutY="90.0" text="Name">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label />
+            <MFXTextField fx:id="NID" prefHeight="38.0" prefWidth="343.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </MFXTextField>
             <Label text="Age" />
-            <TextField fx:id="age" editable="false" prefHeight="24.0" prefWidth="235.0" />
-            <Label text="Address:" />
-            <TextField fx:id="address" editable="false" prefHeight="24.0" prefWidth="235.0" />
-            <Label layoutX="10.0" layoutY="130.0" text="Lisence no:" />
-            <TextField fx:id="lisenceNo" editable="false" layoutX="10.0" layoutY="146.0" prefHeight="24.0" prefWidth="235.0" />
-            <Label layoutX="10.0" layoutY="170.0" text="Vehicle no:" />
-            <TextField fx:id="vehicleNo" editable="false" layoutX="10.0" layoutY="186.0" prefHeight="24.0" prefWidth="235.0" />
-            <Label layoutX="10.0" layoutY="210.0" text="Vehicle Type" />
-            <TextField fx:id="vehicleType" editable="false" layoutX="10.0" layoutY="226.0" prefHeight="24.0" prefWidth="235.0" />
-            <Label layoutX="10.0" layoutY="250.0" text="Previous offences:" />
-            <TextField fx:id="previousOffences" editable="false" layoutX="10.0" layoutY="266.0" prefHeight="24.0" prefWidth="235.0" />
+            <Label />
+            <MFXTextField fx:id="age" prefHeight="38.0" prefWidth="343.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </MFXTextField>
+            <Label text="Address">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label />
+            <MFXTextField fx:id="address" prefHeight="38.0" prefWidth="343.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </MFXTextField>
+            <Label layoutX="10.0" layoutY="130.0" text="Lisence no">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label />
+            <MFXTextField fx:id="lisenceNo" prefHeight="38.0" prefWidth="343.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </MFXTextField>
+            <Label layoutX="10.0" layoutY="170.0" text="Vehicle no">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label />
+            <MFXTextField fx:id="vehicleNo" prefHeight="38.0" prefWidth="343.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </MFXTextField>
+            <Label layoutX="10.0" layoutY="210.0" text="Vehicle Type">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label />
+            <MFXTextField fx:id="vehicleType" prefHeight="38.0" prefWidth="343.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </MFXTextField>
          </children>
       </VBox>
-      <Label layoutX="45.0" layoutY="33.0" text="Profile">
+      <Label layoutX="570.0" layoutY="156.0" text="Profile" textFill="#d64550">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="36.0" />
          </font></Label>
+      <ImageView fitHeight="275.0" fitWidth="334.0" layoutX="459.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Logo/normalcar.png" />
+         </image></ImageView>
    </children>
 </AnchorPane>
